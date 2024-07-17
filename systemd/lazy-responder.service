@@ -1,0 +1,12 @@
+[Unit]
+Description=lazy responder for testing Web clients and load balancers
+After=network.target
+
+[Service]
+User=<USERID>
+WorkingDirectory=<PATH>/lazy-responder
+ExecStart=/usr/bin/bundle exec ruby lazy-responder.rb -e production -p 10080
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
